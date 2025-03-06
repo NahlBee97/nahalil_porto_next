@@ -8,9 +8,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        anta: ["Anta", "Serif"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        mycolor1: "var(--mycolor1)",
+        mycolor2: "var(--mycolor2)",
+        mycolor3: "var(--mycolor3)",
+        mycolor4: "var(--mycolor4)",
       },
     },
   },
