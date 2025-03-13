@@ -1,27 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export default function Navbar() {
-    const [isClick, setisClick] = useState<boolean>(false);
+    const [isClicked, setIsClicked] = useState<boolean>(false);
     
     const toggleNavbar = (): void => {
-        setisClick(!isClick);
+        setIsClicked(prevState => !prevState);
     };
 
-    const links = [
+    const closeNavbar = (): void => {
+        setIsClicked(false);
+    };
+
+    const links = useMemo(() => [
         {name:"Home",url:"#home"},
         {name:"About",url:"#about"},
         {name:"Experience",url:"#experience"},
         {name:"Skills",url:"#skills"},
-        {name:"Portofolio",url:"#portofolio"},
+        {name:"Portfolio",url:"#portfolio"},
         {name:"Contact",url:"#contact"},
-    ];
+    ], []);
 
 
     return (
-        <nav className="bg-mycolor4 fixed top-0 w-[100vw] z-50">
+        <nav className="bg-mycolor4 fixed top-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -33,14 +37,18 @@ export default function Navbar() {
                     </div>
                     <div className="hidden md:block">
                         <div className="ml-4 flex items-center space-x-4">
-                            {links.map((el) => (
-                                <a key={el.name} className="text-mycolor2 hover:bg-mycolor2 hover:text-mycolor4 rounded-lg p-2" href={el.url}>{el.name}</a>
+                            {links.map(({ name, url }) => (
+                                <a key={name} className="text-mycolor2 hover:bg-mycolor2 hover:text-mycolor4 rounded-lg p-2" href={url}>{name}</a>
                             ))}
                         </div>
                     </div>
                     <div className="md:hidden flex items-center">
-                        <button className="inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" onClick={toggleNavbar}>
-                            {isClick ? 
+                        <button 
+                            className="inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" 
+                            onClick={toggleNavbar}
+                            aria-label="Toggle navigation"
+                        >
+                            {isClicked ? 
                                 <svg  className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
                                 </svg> :  
@@ -51,11 +59,11 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-            {isClick && (
+            {isClicked && (
                 <div className="md:hidden">
                     <div className="px-2 pt-2 pb-3 space-y-1">
-                        {links.map((el) => (
-                            <Link key={el.name} className="block ml-4 w-28 text-mycolor2 hover:bg-mycolor2 hover:text-mycolor4 rounded-lg p-2" href={el.url}>{el.name}</Link>
+                        {links.map(({ name, url }) => (
+                            <Link key={name} className="block ml-4 w-28 text-mycolor2 hover:bg-mycolor2 hover:text-mycolor4 rounded-lg p-2" href={url} onClick={closeNavbar}>{name}</Link>
                         ))}
                     </div>
                 </div>
