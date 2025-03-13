@@ -5,7 +5,7 @@ import Portfolio from "@/pages/porto";
 import Experience from "@/pages/exp";
 import Skills from "@/pages/skills";
 import Contact from "@/pages/contact";
-
+import Footer from "@/components/footer";
 
 export default function mainPage() {
   return (
@@ -17,6 +17,7 @@ export default function mainPage() {
       <Skills/>
       <Portfolio/>
       <Contact/>
+      <Footer/>
     </div>
   )
 };
