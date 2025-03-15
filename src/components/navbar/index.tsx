@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
     const [isClicked, setIsClicked] = useState<boolean>(false);
     const [isVisible, setIsVisible] = useState<boolean>(true);
+    const navbarRef = useRef<HTMLDivElement>(null);
     let lastScrollTop = 0;
     
     const toggleNavbar = (): void => {
@@ -26,10 +27,18 @@ export default function Navbar() {
         lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     };
 
+    const handleClickOutside = (event: MouseEvent): void => {
+        if (navbarRef.current && !navbarRef.current.contains(event.target as Node)) {
+            closeNavbar();
+        }
+    };
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
 
@@ -44,7 +53,7 @@ export default function Navbar() {
 
 
     return (
-        <nav className={`bg-mycolor4 fixed top-0 w-full z-50 transition-transform duration-300 ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
+        <nav ref={navbarRef} className={`bg-mycolor4 fixed top-0 w-full z-50 transition-transform duration-300 ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
