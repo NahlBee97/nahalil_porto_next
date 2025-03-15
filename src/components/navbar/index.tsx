@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
     const [isClicked, setIsClicked] = useState<boolean>(false);
+    const [isVisible, setIsVisible] = useState<boolean>(true);
+    let lastScrollTop = 0;
     
     const toggleNavbar = (): void => {
         setIsClicked(prevState => !prevState);
@@ -14,18 +16,35 @@ export default function Navbar() {
         setIsClicked(false);
     };
 
-    const links = useMemo(() => [
+    const handleScroll = (): void => {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScrollTop > lastScrollTop) {
+            setIsVisible(false);
+        } else {
+            setIsVisible(true);
+        }
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const links = [
         {name:"Home",url:"#home"},
         {name:"About",url:"#about"},
         {name:"Experience",url:"#experience"},
         {name:"Skills",url:"#skills"},
         {name:"Portfolio",url:"#portfolio"},
         {name:"Contact",url:"#contact"},
-    ], []);
+    ];
 
 
     return (
-        <nav className="bg-mycolor4 fixed top-0 w-full z-50">
+        <nav className={`bg-mycolor4 fixed top-0 w-full z-50 transition-transform duration-300 ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
