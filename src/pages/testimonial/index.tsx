@@ -63,7 +63,6 @@ export default function Testimonial() {
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
                   <p className="text-xl font-semibold">{project.name}</p>
                   <p>{project.review}</p>
-                  <button className="bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl">Read More</button>
                 </div>
               </div>
             ))}

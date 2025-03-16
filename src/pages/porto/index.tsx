@@ -3,6 +3,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRouter } from "next/navigation";
 
 interface IProjects {
     name: string;
@@ -26,7 +27,7 @@ const projects: IProjects[] = [
         img: "/css_icon.png",
         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
     },
-{
+    {
         name: "project4",
         img: "/express_icon.png",
         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
@@ -38,6 +39,8 @@ const projects: IProjects[] = [
     }
 ]
 export default function Portofolio() {
+    const router = useRouter();
+
     const settings = {
       dots: true,
       infinite: true,
@@ -47,6 +50,7 @@ export default function Portofolio() {
       autoplay: true,
       autoplaySpeed: 3000,
     };
+
 
     return (
       <div id="portofolio" className="bg-gray-100 min-h-screen py-8">
@@ -62,7 +66,7 @@ export default function Portofolio() {
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
                   <p className="text-xl font-semibold">{project.name}</p>
                   <p>{project.desc}</p>
-                  <button className="bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl">Read More</button>
+                  <button onClick={(): void => {router.push(`/portfolio/${project.name}`)}} className="bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl">Read More</button>
                 </div>
               </div>
             ))}
