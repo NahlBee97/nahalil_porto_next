@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --mycolor1: #FF5656;
+  --mycolor1: #00EEFF;
   --mycolor2: #EDF2F6;
   --mycolor3: #6A7EFC;
-  --mycolor4: #494953;
+  --mycolor4: #1F242D;
 }
 
 body {
-  font-family: "Protest Guerrilla", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--mycolor4);
 }
 
 .slick-prev:before,

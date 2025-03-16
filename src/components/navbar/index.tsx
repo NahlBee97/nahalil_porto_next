@@ -60,14 +60,14 @@ export default function Navbar() {
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
                             <Link className="text-mycolor2 text-xl" href="#">
-                                <p><span className="font-bold text-mycolor1">Nahl</span>Bee</p>
+                                <p className="font-bold"><span className="text-mycolor1">Nahl</span>Bee</p>
                             </Link>
                         </div>
                     </div>
                     <div className="hidden md:block">
-                        <div className="ml-4 flex items-center space-x-4">
+                        <div className="ml-4 flex items-center space-x-6">
                             {links.map(({ name, url }) => (
-                                <a key={name} className="text-mycolor2 hover:bg-mycolor2 hover:text-mycolor4 rounded-lg p-2" href={url}>{name}</a>
+                                <a key={name} className="text-mycolor2 hover:border-b hover:border-b-mycolor1 p-1" href={url}>{name}</a>
                             ))}
                         </div>
                     </div>
@@ -92,7 +92,7 @@ export default function Navbar() {
                 <div className="md:hidden">
                     <div className="px-2 pt-2 pb-3 space-y-1">
                         {links.map(({ name, url }) => (
-                            <Link key={name} className="block ml-4 w-28 text-mycolor2 hover:bg-mycolor2 hover:text-mycolor4 rounded-lg p-2" href={url} onClick={closeNavbar}>{name}</Link>
+                            <Link key={name} className="block ml-4 w-28 text-mycolor2 hover:border-b hover:border-b-mycolor1 p-1" href={url} onClick={closeNavbar}>{name}</Link>
                         ))}
                     </div>
                 </div>
