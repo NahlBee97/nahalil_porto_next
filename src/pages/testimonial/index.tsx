@@ -3,41 +3,42 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Autoplay } from "swiper/modules";
 
-interface IProjects {
+interface ITestimonials {
     name: string;
     img: string;
-    desc: string;
+    review: string;
 }
 
-const projects: IProjects[] = [
+const projects: ITestimonials[] = [
     {
-        name: "project1",
+        name: "Armin Arlert",
         img: "/next_icon.png",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
+        review: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
     },
     {
-        name: "project2",
+        name: "Sasuke Uchiha",
         img: "/html_icon.png",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
+        review: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
     },
     {
-        name: "project3",
+        name: "Robert Kiyosaki",
         img: "/css_icon.png",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
+        review: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
     },
 {
-        name: "project4",
+        name: "Eichiro Oda",
         img: "/express_icon.png",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
+        review: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
     },
     {
-        name: "project5",
+        name: "Monkey D. Luffy",
         img: "/node_icon.png",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
+        review: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum."
     }
 ]
-export default function Portofolio() {
+export default function Testimonial() {
     const settings = {
       dots: true,
       infinite: true,
@@ -49,8 +50,8 @@ export default function Portofolio() {
     };
 
     return (
-      <div id="portofolio" className="bg-gray-100 min-h-screen py-8">
-        <h2 className="text-2xl text-center font-bold text-mycolor1 mb-8">My Portofolio</h2>
+      <div id="testimonial" className="bg-gray-100 min-h-screen py-8">
+        <h2 className="text-2xl text-center font-bold text-mycolor1 mb-8">What people say about me</h2>
         <div className="w-3/4 m-auto">
           <div className="mt-5">
             <Slider {...settings}>
@@ -61,7 +62,7 @@ export default function Portofolio() {
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
                   <p className="text-xl font-semibold">{project.name}</p>
-                  <p>{project.desc}</p>
+                  <p>{project.review}</p>
                   <button className="bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl">Read More</button>
                 </div>
               </div>

@@ -14,3 +14,15 @@
 body {
   font-family: "Protest Guerrilla", sans-serif;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: var(--mycolor3) !important;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+
+

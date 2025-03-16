@@ -48,6 +48,7 @@ export default function Navbar() {
         {name:"Experience",url:"#experience"},
         {name:"Skills",url:"#skills"},
         {name:"Portfolio",url:"#portfolio"},
+        {name:"Testimonial",url:"#testimonial"},
         {name:"Contact",url:"#contact"},
     ];
 

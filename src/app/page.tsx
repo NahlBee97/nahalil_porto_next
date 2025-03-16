@@ -1,21 +1,23 @@
 import NavBar from "@/components/navbar";
-import Home from "@/pages/home";
+import HomePage from "@/pages/home";
 import About from "@/pages/about";
 import Portfolio from "@/pages/porto";
 import Experience from "@/pages/exp";
 import Skills from "@/pages/skills";
+import Testimonial from "@/pages/testimonial";
 import Contact from "@/pages/contact";
 import Footer from "@/components/footer";
 
-export default function mainPage() {
+export default function Home() {
   return (
     <div>
       <NavBar/>
-      <Home/>
+      <HomePage/>
       <About/>
       <Experience/>
       <Skills/>
       <Portfolio/>
+      <Testimonial/>
       <Contact/>
       <Footer/>
     </div>
