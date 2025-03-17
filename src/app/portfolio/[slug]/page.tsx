@@ -19,7 +19,7 @@ const projects: IProjectDetail[] = [
     }
 ];
 
-export default function Detail({ params }: { params: { slug: string } }) {
+export default function Detail({ params }: { params: { slug: string; }; }) {
     const [project, setProject] = useState<IProjectDetail | undefined>(undefined);
 
     async function getProject() {
