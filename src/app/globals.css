@@ -18,12 +18,13 @@ body {
 
 .slick-prev:before,
 .slick-next:before {
-  color: var(--mycolor3) !important;
+  color: var(--mycolor1) !important;
 }
 
 .slick-slide > div {
   margin: 0 10px;
 }
+
 
 
 

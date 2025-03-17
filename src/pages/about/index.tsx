@@ -1,29 +1,27 @@
 export default function About() {
     return (
-        <div id="about" className="bg-mycolor4 p-4 h-[100vh]">
-            <div className="flex flex-col items-center">
-                <div>
-                    <img className="w-[200px] rounded-full" src="/my_image2.png" alt="my-image2" />
-                </div>
-                <div className="text-center text-mycolor2 mt-4">
-                    <h1 className="text-mycolor1 text-2xl">
-                    About Me!
-                    </h1>
-                    <p className="text-sm mt-1">
-                    Hey there! 👋 I'm Nahalil, a dedicated Software Engineer with a passion for developing innovative software solutions. I excel in creating efficient, scalable applications that solve real-world problems and enhance user experiences. With a blend of creativity and technical expertise, I thrive on transforming complex ideas into robust and impactful software.
-                    </p>
-                    <h2 className="text-mycolor3 mt-2">
-                    A Bit of My Background
-                    </h2>
-                    <p className="text-sm">
-                    With 5 years in the tech industry, I've had the opportunity to work on diverse projects ranging from dynamic web applications to complex backend systems.
-                    </p>
-                    <h2 className="text-mycolor3 mt-2">
-                    Let's Collaborate!
-                    </h2>
-                    <p className="text-sm">
-                    Whether you're a fellow developer, a designer, or a business owner seeking to innovate with technology, I'm eager to collaborate on exciting projects. Let's work together to transform your vision into a robust and scalable software solution!.
-                    </p>
+        <div id="about" className="bg-mycolor4 p-4 h-[50vh] md:flex md:justify-center">
+            <div className="h-full w-[90vw] flex flex-col md:flex-row items-center">
+                <h1 className="text-mycolor2 text-2xl md:text-4xl md:font-semibold md:text-center md:w-[30vw]">
+                About Me!
+                </h1>
+                <div className="md:w-[60vw] text-center text-mycolor2 mt-4 md:grid md:grid-cols-4 md:gap-2">
+                    <div className="flex flex-col justify-center items-center border-2 border-mycolor1 w-[175px] h-[175px] rounded-lg">
+                        <p className="text-mycolor1 md:text-2xl font-semibold">5 Years</p>
+                        <p className="text-mycolor1 md:text-lg">Of Experience</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center border-2 border-mycolor1 w-[175px] h-[175px] rounded-lg">
+                        <p className="text-mycolor1 md:text-2xl font-semibold">100+</p>
+                        <p className="text-mycolor1 md:text-lg">Satisfied Clients</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center border-2 border-mycolor1 w-[175px] h-[175px] rounded-lg">
+                        <p className="text-mycolor1 md:text-2xl font-semibold">1000+</p>
+                        <p className="text-mycolor1 md:text-lg">Professional Projects</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center border-2 border-mycolor1 w-[175px] h-[175px] rounded-lg">
+                        <p className="text-mycolor1 md:text-2xl font-semibold">1000+</p>
+                        <p className="text-mycolor1 md:text-lg">WebApp Builded</p>
+                    </div>
                 </div>
             </div>
         </div>

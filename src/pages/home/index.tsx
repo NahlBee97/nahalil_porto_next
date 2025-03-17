@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function HomePage() {
     return (
-        <div className="h-[100vh] w-full md:flex md:justify-center md:items-center pt-16" id="home">
+        <div className="bg-[url(/home_bg.png)] bg-cover h-[100vh] w-full md:flex md:justify-center md:items-center pt-16" id="home">
             <div className="w-[90vw] h-[90vh] flex flex-col items-center md:grid md:grid-cols-2 p-4">
                 <div className="text-center md:flex md:flex-col md:justify-center md:items-center text-mycolor2 mt-5 md:mt-0 order-4">
                     <h3 className="text-mycolor1 text-lg md:text-2xl font-semibold">Hello There, Welcome!</h3>
@@ -18,7 +18,7 @@ export default function HomePage() {
                     </button>
                 </div>
                 <div className="flex justify-center items-center h-full md:order-4">
-                    <img className="w-[200px] md:h-[450px] md:w-[475px] rounded-full md:shadow-[11px_19px_0px_3px_#00EEFF] shadow-[11px_19px_0px_-10px_#00EEFF]" src="/my_image2.png" alt="my-image2" />
+                    <img className="w-[200px] md:h-[425px] md:w-[450px] rounded-full md:shadow-[11px_19px_0px_3px_#00EEFF] shadow-[11px_19px_0px_-10px_#00EEFF]" src="/my_image2.png" alt="my-image2" />
                 </div>
             </div>
         </div>

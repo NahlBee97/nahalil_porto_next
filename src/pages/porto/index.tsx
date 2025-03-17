@@ -45,7 +45,7 @@ export default function Portofolio() {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 3,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
@@ -53,20 +53,20 @@ export default function Portofolio() {
 
 
     return (
-      <div id="portofolio" className="bg-gray-100 min-h-screen py-8">
-        <h2 className="text-2xl text-center font-bold text-mycolor1 mb-8">My Portofolio</h2>
+      <div id="portofolio" className="bg-mycolor4 py-8">
+        <h2 className="text-3xl text-center font-bold text-mycolor2 mb-8">My Works</h2>
         <div className="w-3/4 m-auto">
           <div className="mt-5">
             <Slider {...settings}>
             {projects.map((project) => (
-              <div key={project.name} className="bg-white h-[450px] text-black rounded-xl">
-                <div className="h-56 rounded-t-xl bg-indigo-500 flex justify-center items-center">
+              <div key={project.name} className="border-2 border-mycolor1 h-[450px] rounded-xl">
+                <div className="h-56 rounded-t-xl flex justify-center items-center">
                   <img src={project.img} alt="" className="h-44 w-44 rounded-full" />
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
-                  <p className="text-xl font-semibold">{project.name}</p>
-                  <p>{project.desc}</p>
-                  <button onClick={(): void => {router.push(`/portfolio/${project.name}`)}} className="bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl">Read More</button>
+                  <p className="text-xl text-mycolor1 font-semibold">{project.name}</p>
+                  <p className="text-base text-mycolor2 text-justify">{project.desc}</p>
+                  <button onClick={(): void => {router.push(`/portfolio/${project.name}`)}} className="bg-mycolor1 text-mycolor4 text-base font-semibold px-4 py-1 rounded-lg mt-2">Read More</button>
                 </div>
               </div>
             ))}
