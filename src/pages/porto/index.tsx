@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,7 +55,7 @@ export default function Portofolio() {
 
 
     return (
-      <div id="portofolio" className="bg-mycolor4 py-8">
+      <div id="portfolio" className="bg-mycolor4 py-8">
         <h2 className="text-3xl text-center font-bold text-mycolor2 mb-8">My Works</h2>
         <div className="w-3/4 m-auto">
           <div className="mt-5">
@@ -66,7 +68,7 @@ export default function Portofolio() {
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
                   <p className="text-xl text-mycolor1 font-semibold">{project.name}</p>
                   <p className="text-base text-mycolor2 text-justify">{project.desc}</p>
-                  <button onClick={(): void => {router.push(`/portfolio/${project.name}`)}} className="bg-mycolor1 text-mycolor4 text-base font-semibold px-4 py-1 rounded-lg mt-2">Read More</button>
+                  <Link href={`/portfolio/${project.name}`} className="bg-mycolor1 text-mycolor4 text-base font-semibold px-4 py-1 rounded-lg mt-2">Read More</Link>
                 </div>
               </div>
             ))}
