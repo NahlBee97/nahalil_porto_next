@@ -1,40 +1,65 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 
 interface IProjectDetail {
-    name: string;
-    situation: string;
-    task: string;
-    action: string;
-    result: string;
+  name: string;
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
 }
+
 const projects: IProjectDetail[] = [
-    {
-        name: "project1",
-        situation: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum iste tempora molestiae excepturi officia nisi! Unde sint earum mollitia quasi!",
-        task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim eligendi, consectetur placeat corrupti nobis minima iure cupiditate totam aperiam quia accusantium sed pariatur dolores beatae?",
-        action: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, error. Ipsum voluptatibus sequi soluta consectetur impedit vel provident aliquam fugit dolorum suscipit non optio dicta cumque, odio alias maiores et ducimus corrupti totam nesciunt nisi!",
-        result: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis repudiandae assumenda consectetur error obcaecati iure soluta, corporis in nihil optio qui, rem veniam. Accusantium deleniti dolor quos quas quibusdam repellat exercitationem fugiat dolorum, numquam hic animi quasi blanditiis velit veritatis distinctio incidunt vero sint quae."
-    }
+  {
+    name: "project1",
+    situation:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum iste tempora molestiae excepturi officia nisi! Unde sint earum mollitia quasi!",
+    task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim eligendi, consectetur placeat corrupti nobis minima iure cupiditate totam aperiam quia accusantium sed pariatur dolores beatae?",
+    action:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, error. Ipsum voluptatibus sequi soluta consectetur impedit vel provident aliquam fugit dolorum suscipit non optio dicta cumque, odio alias maiores et ducimus corrupti totam nesciunt nisi!",
+    result:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis repudiandae assumenda consectetur error obcaecati iure soluta, corporis in nihil optio qui, rem veniam. Accusantium deleniti dolor quos quas quibusdam repellat exercitationem fugiat dolorum, numquam hic animi quasi blanditiis velit veritatis distinctio incidunt vero sint quae.",
+  },
 ];
 
-export default function Detail({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+export default function Detail({ params }: PageProps) {
   const [project, setProject] = useState<IProjectDetail | undefined>(undefined);
+  const [resolvedParams, setResolvedParams] = useState<{ slug: string } | null>(
+    null
+  );
 
-  async function fetchUser() {
-    try {
-      const param = await params;
-      const project = projects.find((project) => project.name === param.slug);
-
-      setProject(project);
-    } catch (Err) {
-      console.log(Err);
-    }
-  }
   useEffect(() => {
-    fetchUser();
-  }, []);
+    const resolveParams = async () => {
+      const resolved = await params;
+      setResolvedParams(resolved);
+    };
+
+    resolveParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (resolvedParams) {
+      const fetchProject = () => {
+        try {
+          const project = projects.find(
+            (project) => project.name === resolvedParams.slug
+          );
+          setProject(project);
+        } catch (Err) {
+          console.log(Err);
+        }
+      };
+
+      fetchProject();
+    }
+  }, [resolvedParams]);
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
