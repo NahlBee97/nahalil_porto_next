@@ -14,31 +14,31 @@ interface ITestimonials {
 const projects: ITestimonials[] = [
   {
     name: "Armin Arlert",
-    img: "/next_icon.png",
+    img: "/armin.jpeg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
     name: "Sasuke Uchiha",
-    img: "/html_icon.png",
+    img: "/sasuke.jpg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
     name: "Robert Kiyosaki",
-    img: "/css_icon.png",
+    img: "/robert.png",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
     name: "Eichiro Oda",
-    img: "/express_icon.png",
+    img: "/oda.jpeg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
     name: "Monkey D. Luffy",
-    img: "/node_icon.png",
+    img: "/luffy.jpeg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
@@ -71,7 +71,7 @@ export default function Testimonial() {
                   <img
                     src={project.img}
                     alt=""
-                    className="h-44 w-44 rounded-full"
+                    className="h-44 w-44 border border-mycolor2 rounded-full"
                   />
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 p-4">

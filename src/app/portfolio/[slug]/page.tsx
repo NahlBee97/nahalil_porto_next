@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface IProjectDetail {
   name: string;
+  image: string;
   situation: string;
   task: string;
   action: string;
@@ -12,14 +14,59 @@ interface IProjectDetail {
 
 const projects: IProjectDetail[] = [
   {
-    name: "project1",
+    name: "Ocean Of Games",
+    image: "/OceanOfGames.png",
     situation:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum iste tempora molestiae excepturi officia nisi! Unde sint earum mollitia quasi!",
-    task: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim eligendi, consectetur placeat corrupti nobis minima iure cupiditate totam aperiam quia accusantium sed pariatur dolores beatae?",
+      "A comprehensive gaming platform offering a wide range of downloadable games with a user-friendly interface.",
+    task: "Develop a user-friendly interface and ensure seamless download functionality for users.",
     action:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, error. Ipsum voluptatibus sequi soluta consectetur impedit vel provident aliquam fugit dolorum suscipit non optio dicta cumque, odio alias maiores et ducimus corrupti totam nesciunt nisi!",
+      "Implemented a responsive web design and optimized server infrastructure to handle high traffic and large file downloads.",
     result:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis repudiandae assumenda consectetur error obcaecati iure soluta, corporis in nihil optio qui, rem veniam. Accusantium deleniti dolor quos quas quibusdam repellat exercitationem fugiat dolorum, numquam hic animi quasi blanditiis velit veritatis distinctio incidunt vero sint quae.",
+      "Successfully launched the platform with over 1,000 games available, achieving a 20% increase in user engagement within the first month.",
+  },
+  {
+    name: "Organizo",
+    image: "/Organizo.png",
+    situation:
+      "A productivity application with real-time updates, team collaboration features, and customizable workflow management.",
+    task: "Develop a task management system with real-time collaboration features.",
+    action:
+      "Built a real-time collaboration feature using WebSockets and implemented a customizable workflow management system.",
+    result:
+      "Increased team productivity by 30% and improved task tracking efficiency.",
+  },
+  {
+    name: "Medoctor",
+    image: "/medoctor.png",
+    situation:
+      "A secure patient management system with appointment scheduling, medical records integration, and HIPAA-compliant data handling.",
+    task: "Develop a secure portal for managing patient appointments and medical records.",
+    action:
+      "Integrated secure authentication and data encryption to ensure HIPAA compliance.",
+    result:
+      "Improved patient data security and streamlined appointment scheduling.",
+  },
+  {
+    name: "Boldtri",
+    image: "/boldtri.png",
+    situation:
+      "An interactive analytics platform with real-time data visualization, predictive modeling, and comprehensive reporting tools.",
+    task: "Create a financial dashboard with real-time data visualization.",
+    action:
+      "Implemented real-time data feeds and interactive charts for financial analysis.",
+    result:
+      "Enhanced financial decision-making with up-to-date insights and reports.",
+  },
+  {
+    name: "Mangaku",
+    image: "/mangaku.png",
+    situation:
+      "A dynamic manga reading platform with a vast library and personalized recommendations.",
+    task: "Develop a scalable API for manga content delivery and user interactions.",
+    action:
+      "Built a RESTful API with scalable architecture and integrated personalized recommendation algorithms.",
+    result:
+      "Enhanced user engagement with personalized content and supported millions of daily interactions.",
   },
 ];
 
@@ -38,7 +85,9 @@ export default function Detail({ params }: PageProps) {
   useEffect(() => {
     const resolveParams = async () => {
       const resolved = await params;
-      setResolvedParams(resolved);
+      // Decode the slug parameter
+      const decodedSlug = decodeURIComponent(resolved.slug);
+      setResolvedParams({ slug: decodedSlug });
     };
 
     resolveParams();
@@ -61,32 +110,75 @@ export default function Detail({ params }: PageProps) {
     }
   }, [resolvedParams]);
 
+  const getNextProjectSlug = () => {
+    if (project) {
+      const currentIndex = projects.findIndex((p) => p.name === project.name);
+      const nextIndex = (currentIndex + 1) % projects.length;
+      return projects[nextIndex].name;
+    }
+    return "";
+  };
+
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-4xl mx-auto p-6 bg-mycolor4 shadow-md rounded-lg">
+      <div className="flex flex-col justify-center h-[30vh] border-b-2 border-b-mycolor1">
+        <h1 className="text-3xl text-mycolor2 font-semibold">
+          Project Details
+        </h1>
+        <div className="flex text-mycolor2 mt-4 gap-3 ">
+          <Link
+            href="/"
+            className="text-sm font-semibold text-center border-2 border-mycolor1 rounded-lg w-32 py-1 px-2 hover:bg-mycolor1 hover:text-mycolor4"
+          >
+            Back To Home
+          </Link>
+          <Link
+            href="/#portfolio"
+            className="text-sm font-semibold text-center border-2 border-mycolor1 rounded-lg w-32 py-1 px-2 hover:bg-mycolor1 hover:text-mycolor4"
+          >
+            Portfolio
+          </Link>
+          <Link
+            href={`/portfolio/${getNextProjectSlug()}`}
+            className="text-sm font-semibold text-center border-2 border-mycolor1 rounded-lg w-32 py-1 px-2 hover:bg-mycolor1 hover:text-mycolor4"
+          >
+            Next Project →
+          </Link>
+        </div>
+      </div>
       {project ? (
-        <div>
-          <h1 className="text-3xl font-bold mb-4 text-indigo-600">
+        <div className="text-justify">
+          <h1 className="text-3xl uppercase font-bold my-8 text-mycolor1">
             {project.name}
           </h1>
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">Situation</h2>
-            <p className="text-gray-700 mb-4">{project.situation}</p>
+          <div className="flex justify-center items-center mb-4">
+            <img className="w-[550px]" src={project.image} alt={project.name} />
           </div>
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">Task</h2>
-            <p className="text-gray-700 mb-4">{project.task}</p>
+            <h2 className="text-xl text-mycolor1 font-semibold mb-2">
+              Situation
+            </h2>
+            <p className="text-mycolor2 mb-4">{project.situation}</p>
           </div>
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">Action</h2>
-            <p className="text-gray-700 mb-4">{project.action}</p>
+            <h2 className="text-xl text-mycolor1 font-semibold mb-2">Task</h2>
+            <p className="text-mycolor2 mb-4">{project.task}</p>
           </div>
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">Result</h2>
-            <p className="text-gray-700">{project.result}</p>
+            <h2 className="text-xl text-mycolor1 after:content-['_✓'] font-semibold mb-2">
+              Action
+            </h2>
+            <p className="text-mycolor2 mb-4">{project.action}</p>
+          </div>
+          <div className="mb-6">
+            <h2 className="text-xl text-mycolor1 after:content-['_✓'] font-semibold mb-2">
+              Result
+            </h2>
+            <p className="text-mycolor2">{project.result}</p>
           </div>
         </div>
       ) : (
-        <p className="text-center text-gray-500">Loading...</p>
+        <p className="text-center text-mycolor4 h-[100vh]">Loading...</p>
       )}
     </div>
   );
