@@ -1,13 +1,31 @@
-import fs from "fs";
 import IExp from "@/interfaces/data.interfaces";
 
-function fetchData() {
-  const readData = fs.readFileSync("./src/db/db.json", "utf-8");
-  const readDataJSON = JSON.parse(readData);
-  return readDataJSON.experiences;
-}
-
-const experiences: IExp[] = fetchData();
+const experiences: IExp[] = [
+  {
+    id: 1,
+    company: "Singapore Tech Inc.",
+    role: "Software Engineer",
+    duration: "Jan 2030 - Present",
+    description:
+      "Developed and maintained web application's UI using React and Node.js.",
+  },
+  {
+    id: 2,
+    company: "GOTO Corp.",
+    role: "Senior Backend Developer",
+    duration: "Jan 2027 - Dec 2030",
+    description:
+      "Built and optimized user interfaces for various web applications.",
+  },
+  {
+    id: 3,
+    company: "Web Solutions Inc.",
+    role: "Backend Developer",
+    duration: "Jun 2025 - Dec 2027",
+    description:
+      "Built and optimized backend functionality for various web applications.",
+  },
+];
 
 export default function Experience() {
   return (
