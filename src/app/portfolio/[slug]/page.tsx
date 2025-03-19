@@ -122,7 +122,7 @@ export default function Detail({ params }: PageProps) {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-mycolor4 shadow-md rounded-lg">
       <div className="flex flex-col justify-center h-[30vh] border-b-2 border-b-mycolor1">
-        <h1 className="text-3xl text-mycolor2 font-semibold">
+        <h1 className="text-2xl text-mycolor2 font-semibold md:text-3xl">
           Project Details
         </h1>
         <div className="flex text-mycolor2 mt-4 gap-3 ">
@@ -148,33 +148,33 @@ export default function Detail({ params }: PageProps) {
       </div>
       {project ? (
         <div className="text-justify">
-          <h1 className="text-3xl uppercase font-bold my-8 text-mycolor1">
+          <h1 className="text-2xl uppercase font-bold my-8 text-mycolor1 md:text-3xl">
             {project.name}
           </h1>
           <div className="flex justify-center items-center mb-4">
             <img className="w-[550px]" src={project.image} alt={project.name} />
           </div>
           <div className="mb-6">
-            <h2 className="text-xl text-mycolor1 font-semibold mb-2">
+            <h2 className="text-lg text-mycolor1 font-semibold mb-2 md:text-xl">
               Situation
             </h2>
-            <p className="text-mycolor2 mb-4">{project.situation}</p>
+            <p className="text-sm text-mycolor2 mb-4 md:text-base">{project.situation}</p>
           </div>
           <div className="mb-6">
-            <h2 className="text-xl text-mycolor1 font-semibold mb-2">Task</h2>
-            <p className="text-mycolor2 mb-4">{project.task}</p>
+            <h2 className="text-lg text-mycolor1 font-semibold mb-2 md:text-xl">Task</h2>
+            <p className="text-sm text-mycolor2 mb-4 md:text-base">{project.task}</p>
           </div>
           <div className="mb-6">
-            <h2 className="text-xl text-mycolor1 after:content-['_✓'] font-semibold mb-2">
+            <h2 className="text-lg text-mycolor1 after:content-['_✓'] font-semibold mb-2 md:text-xl">
               Action
             </h2>
-            <p className="text-mycolor2 mb-4">{project.action}</p>
+            <p className="text-sm text-mycolor2 mb-4 md:text-base">{project.action}</p>
           </div>
           <div className="mb-6">
-            <h2 className="text-xl text-mycolor1 after:content-['_✓'] font-semibold mb-2">
+            <h2 className="text-lg text-mycolor1 after:content-['_✓'] font-semibold mb-2 md:text-xl">
               Result
             </h2>
-            <p className="text-mycolor2">{project.result}</p>
+            <p className="text-sm text-mycolor2 md:text-base">{project.result}</p>
           </div>
         </div>
       ) : (

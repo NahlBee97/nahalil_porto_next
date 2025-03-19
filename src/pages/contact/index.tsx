@@ -5,15 +5,15 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="bg-mycolor4 flex justify-center items-center py-8"
+      className="h-[100vh] bg-mycolor4 flex justify-center items-center py-4 md:py-8"
     >
       <div className="w-[75vw]">
-        <h1 className="text-3xl font-semibold text-mycolor2 text-center">
+        <h1 className="text-2xl font-semibold text-mycolor2 text-center md:text-3xl">
           Contact!
         </h1>
-        <div className="grid grid-cols-2 p-4">
-          <div className="flex flex-col justify-center items-center">
-            <p className="text-mycolor1 text-2xl font-semibold mb-4">
+        <div className="flex flex-col p-4 md:grid md:grid-cols-2">
+          <div className="flex flex-row gap-4 justify-center items-center md:flex-col md:gap-0">
+            <p className="hidden text-mycolor1 text-xl font-semibold mb-4 md:text-2xl md:block">
               Get In Touch!
             </p>
             <Link
@@ -21,7 +21,7 @@ export default function Contact() {
               target="/blank"
             >
               <svg
-                className="fill-mycolor2 w-7 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1"
+                className="fill-mycolor2 w-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1 md:w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
@@ -31,10 +31,10 @@ export default function Contact() {
             <Link
               href="https://www.facebook.com/fahri.kazama/?locale=id_ID"
               target="/blank"
-              className="mt-4"
+              className="md:mt-4"
             >
               <svg
-                className="fill-mycolor2 w-7 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1"
+                className="fill-mycolor2 w-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1 md:w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
               >
@@ -44,10 +44,10 @@ export default function Contact() {
             <Link
               href="https://www.instagram.com/nahlbee97/"
               target="/blank"
-              className="mt-4"
+              className="md:mt-4"
             >
               <svg
-                className="fill-mycolor2 w-7 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1"
+                className="fill-mycolor2 w-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1 md:w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
@@ -57,10 +57,10 @@ export default function Contact() {
             <Link
               href="https://www.linkedin.com/in/nahalil-muchtar-29501218b/"
               target="/blank"
-              className="mt-4"
+              className="md:mt-4"
             >
               <svg
-                className="fill-mycolor2 w-7 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1"
+                className="fill-mycolor2 w-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1 md:w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
@@ -70,10 +70,10 @@ export default function Contact() {
             <Link
               href="https://github.com/NahlBee97"
               target="/blank"
-              className="mt-4"
+              className="md:mt-4"
             >
               <svg
-                className="fill-mycolor2 w-7 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1"
+                className="fill-mycolor2 w-5 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-150 hover:fill-mycolor1 md:w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 496 512"
               >
@@ -86,7 +86,7 @@ export default function Contact() {
             action="https://api.web3forms.com/submit"
             formMethod="POST"
           >
-            <p className="self-center text-lg text-mycolor1 text-center border-b-2 border-b-mycolor1 mb-3 w-[200px]">
+            <p className="self-center text-base text-mycolor1 text-center border-b-2 border-b-mycolor1 mb-3 md:w-[200px] md:text-lg">
               Send me a message!
             </p>
             <input
@@ -94,14 +94,14 @@ export default function Contact() {
               name="access_key"
               value="b3bbce48-e7dd-432f-a9db-96dd89ca92d2"
             />
-            <label className="text-base text-mycolor2">Your Name:</label>
+            <label className="text-sm text-mycolor2 md:text-base">Your Name:</label>
             <input
               type="text"
               name="name"
               className="bg-transparent border-b border-b-mycolor1 text-mycolor2 focus:outline-none"
               required
             />
-            <label className="text-base text-mycolor2">
+            <label className="text-sm text-mycolor2 md:text-base">
               Your Email Adress:
             </label>
             <input
@@ -110,7 +110,7 @@ export default function Contact() {
               className="bg-transparent border-b border-b-mycolor1 text-mycolor2 focus:outline-none"
               required
             />
-            <label className="text-base text-mycolor2">Your Message:</label>
+            <label className="text-sm text-mycolor2 md:text-base">Your Message:</label>
             <textarea
               className="h-[200px] bg-transparent border-b border-b-mycolor1 text-mycolor2 focus:outline-none"
               name="message"

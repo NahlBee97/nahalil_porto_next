@@ -51,11 +51,20 @@ export default function Portofolio() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div id="portfolio" className="bg-mycolor4 py-8">
-      <h2 className="text-3xl text-center font-bold text-mycolor2 mb-8">
+      <h2 className="text-2xl text-center font-semibold text-mycolor2 mb-4 md:mb-8 md:text-3xl">
         My Works
       </h2>
       <div className="w-3/4 m-auto">
@@ -69,7 +78,7 @@ export default function Portofolio() {
                 <div className="h-56 flex justify-center items-center">
                   <img
                     src={project.img}
-                    alt=""
+                    alt={project.name}
                     className="h-full w-full rounded-t-xl"
                   />
                 </div>

@@ -68,7 +68,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <Link className="text-mycolor2 text-xl" href="#">
-                <p className="font-bold">
+                <p className="text-lg font-bold md:text-xl">
                   <span className="text-mycolor1">Nahl</span>Bee
                 </p>
               </Link>
@@ -134,7 +134,7 @@ export default function Navbar() {
             {links.map(({ name, url }) => (
               <Link
                 key={name}
-                className="block ml-4 w-28 text-mycolor2 hover:border-b hover:border-b-mycolor1 p-1"
+                className="text-sm block ml-4 w-24 text-mycolor2 hover:border-b hover:border-b-mycolor1 p-1"
                 href={url}
                 onClick={closeNavbar}
               >

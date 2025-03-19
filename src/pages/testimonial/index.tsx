@@ -52,11 +52,20 @@ export default function Testimonial() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-
+  
   return (
     <div id="testimonial" className="bg-mycolor4 py-8">
-      <h2 className="text-3xl text-center font-bold text-mycolor2 mb-8">
+      <h2 className="text-2xl text-center font-bold text-mycolor2 mb-8 md:text-3xl">
         What People Say About Me!
       </h2>
       <div className="w-3/4 m-auto">
@@ -71,7 +80,7 @@ export default function Testimonial() {
                   <img
                     src={project.img}
                     alt=""
-                    className="h-44 w-44 border border-mycolor2 rounded-full"
+                    className="h-44 w-44 border-2 border-mycolor2 rounded-full"
                   />
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 p-4">
