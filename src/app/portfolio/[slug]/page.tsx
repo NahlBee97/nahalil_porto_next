@@ -2,20 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-interface IProjectDetail {
-  name: string;
-  image: string;
-  situation: string;
-  task: string;
-  action: string;
-  result: string;
-}
+import { PageProps, IProjectDetail } from "@/interfaces/data.interfaces";
 
 const projects: IProjectDetail[] = [
   {
+    id: 1,
     name: "Ocean Of Games",
-    image: "/OceanOfGames.png",
+    image: "/projects/OceanOfGames.png",
     situation:
       "A comprehensive gaming platform offering a wide range of downloadable games with a user-friendly interface.",
     task: "Develop a user-friendly interface and ensure seamless download functionality for users.",
@@ -25,8 +18,9 @@ const projects: IProjectDetail[] = [
       "Successfully launched the platform with over 1,000 games available, achieving a 20% increase in user engagement within the first month.",
   },
   {
+    id: 2,
     name: "Organizo",
-    image: "/Organizo.png",
+    image: "/projects/Organizo.png",
     situation:
       "A productivity application with real-time updates, team collaboration features, and customizable workflow management.",
     task: "Develop a task management system with real-time collaboration features.",
@@ -36,8 +30,9 @@ const projects: IProjectDetail[] = [
       "Increased team productivity by 30% and improved task tracking efficiency.",
   },
   {
+    id: 3,
     name: "Medoctor",
-    image: "/medoctor.png",
+    image: "/projects/medoctor.png",
     situation:
       "A secure patient management system with appointment scheduling, medical records integration, and HIPAA-compliant data handling.",
     task: "Develop a secure portal for managing patient appointments and medical records.",
@@ -47,8 +42,9 @@ const projects: IProjectDetail[] = [
       "Improved patient data security and streamlined appointment scheduling.",
   },
   {
+    id: 4,
     name: "Boldtri",
-    image: "/boldtri.png",
+    image: "/projects/boldtri.png",
     situation:
       "An interactive analytics platform with real-time data visualization, predictive modeling, and comprehensive reporting tools.",
     task: "Create a financial dashboard with real-time data visualization.",
@@ -58,8 +54,9 @@ const projects: IProjectDetail[] = [
       "Enhanced financial decision-making with up-to-date insights and reports.",
   },
   {
+    id: 5,
     name: "Mangaku",
-    image: "/mangaku.png",
+    image: "/projects/mangaku.png",
     situation:
       "A dynamic manga reading platform with a vast library and personalized recommendations.",
     task: "Develop a scalable API for manga content delivery and user interactions.",
@@ -70,11 +67,6 @@ const projects: IProjectDetail[] = [
   },
 ];
 
-interface PageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
 
 export default function Detail({ params }: PageProps) {
   const [project, setProject] = useState<IProjectDetail | undefined>(undefined);

@@ -1,19 +1,13 @@
-interface ISkill {
-  id: number;
-  image_url: string;
-  name: string;
+import { ISkill } from "@/interfaces/data.interfaces";
+import fs from "fs";
+
+function fetchData() {
+  const readData = fs.readFileSync("./src/db/db.json", "utf-8");
+  const readDataJSON = JSON.parse(readData);
+  return readDataJSON.skills;
 }
 
-const skills: ISkill[] = [
-  { id: 1, image_url: "/react_icon.png", name: "React" },
-  { id: 2, image_url: "/next_icon.png", name: "Next.js" },
-  { id: 3, image_url: "/tailwind_css_icon.png", name: "Tailwind CSS" },
-  { id: 4, image_url: "/typescript_icon.png", name: "TypeScript" },
-  { id: 5, image_url: "/node_icon.png", name: "Node.js" },
-  { id: 6, image_url: "express_icon.png", name: "Express.js" },
-  { id: 7, image_url: "html_icon.png", name: "HTML" },
-  { id: 8, image_url: "css_icon.png", name: "CSS" },
-];
+const skills: ISkill[] = fetchData();
 
 export default function Skills() {
   return (

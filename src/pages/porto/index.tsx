@@ -5,44 +5,42 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useRouter } from "next/navigation";
+import { IProjects } from "@/interfaces/data.interfaces";
 
-interface IProjects {
-  name: string;
-  img: string;
-  desc: string;
-}
 
 const projects: IProjects[] = [
   {
+    id: 1,
     name: "Ocean Of Games",
-    img: "/OceanOfGames.png",
+    img: "/projects/OceanOfGames.png",
     desc: "A comprehensive gaming platform offering a wide range of downloadable games with a user-friendly interface.",
   },
   {
+    id: 2,
     name: "Organizo",
-    img: "/Organizo.png",
+    img: "/projects/Organizo.png",
     desc: "A productivity application with real-time updates, team collaboration features, and customizable workflow management.",
   },
   {
+    id: 3,
     name: "Medoctor",
-    img: "/medoctor.png",
+    img: "/projects/medoctor.png",
     desc: "A secure patient management system with appointment scheduling, medical records integration, and HIPAA-compliant data handling.",
   },
   {
+    id: 4,
     name: "Boldtri",
-    img: "/boldtri.png",
+    img: "/projects/boldtri.png",
     desc: "An interactive analytics platform with real-time data visualization, predictive modeling, and comprehensive reporting tools.",
   },
   {
+    id: 5,
     name: "Mangaku",
-    img: "/mangaku.png",
+    img: "/projects/mangaku.png",
     desc: "A dynamic manga reading platform with a vast library and personalized recommendations.",
   },
 ];
 export default function Portofolio() {
-  const router = useRouter();
-
   const settings = {
     dots: true,
     infinite: true,

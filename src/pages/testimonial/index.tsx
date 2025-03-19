@@ -3,42 +3,41 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Autoplay } from "swiper/modules";
-
-interface ITestimonials {
-  name: string;
-  img: string;
-  review: string;
-}
+import { ITestimonials } from "@/interfaces/data.interfaces";
 
 const projects: ITestimonials[] = [
   {
+    id: 1,
     name: "Armin Arlert",
-    img: "/armin.jpeg",
+    img: "/testimonials/armin.jpeg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
+    id: 2,
     name: "Sasuke Uchiha",
-    img: "/sasuke.jpg",
+    img: "/testimonials/sasuke.jpg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
+    id: 3,
     name: "Robert Kiyosaki",
-    img: "/robert.png",
+    img: "/testimonials/robert.png",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
+    id: 4,
     name: "Eichiro Oda",
-    img: "/oda.jpeg",
+    img: "/testimonials/oda.jpeg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
   {
+    id: 5,
     name: "Monkey D. Luffy",
-    img: "/luffy.jpeg",
+    img: "/testimonials/luffy.jpeg",
     review:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, voluptatum.",
   },
